@@ -30,7 +30,7 @@ model.summary()
 # 6. 모델 학습
 history = model.fit(
     X_train, y_train,
-    epochs=90,
+    epochs=100,
     batch_size=16,
     validation_data=(X_val, y_val)
 )
