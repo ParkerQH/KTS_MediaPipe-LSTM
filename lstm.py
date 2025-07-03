@@ -5,8 +5,8 @@ from tensorflow.keras.utils import to_categorical
 from sklearn.model_selection import train_test_split
 
 # 1. 데이터 불러오기
-X = np.load('pose_X.npy')   # shape: (샘플수, 99)
-y = np.load('pose_Y.npy')   # shape: (샘플수,)
+X = np.load('mediaPipe/pose_X.npy')   # shape: (샘플수, 99)
+y = np.load('mediaPipe/pose_Y.npy')   # shape: (샘플수,)
 
 # 2. LSTM 입력 형태로 변환 (시퀀스 길이=1)
 X = X.reshape(-1, 1, 99)    # (샘플수, 1, 99)
@@ -30,13 +30,13 @@ model.summary()
 # 6. 모델 학습
 history = model.fit(
     X_train, y_train,
-    epochs=50,
+    epochs=30,
     batch_size=16,
     validation_data=(X_val, y_val)
 )
 
 # 7. 모델 저장
-model.save('kickboard_lstm_model.keras')  # 원하는 파일명으로 저장
+model.save('lstm_model/kickboard_lstm_model.keras')  # 원하는 파일명으로 저장
 
 # 8. 모델 평가
 loss, acc = model.evaluate(X_val, y_val)

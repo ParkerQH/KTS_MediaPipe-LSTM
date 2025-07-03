@@ -36,5 +36,5 @@ for class_name, label in class_folders.items():
 
 X = np.array(data)      # shape: (샘플수, 99)
 y = np.array(labels)    # shape: (샘플수,)
-np.save('pose_X.npy', X)
-np.save('pose_y.npy', y)
+np.save('mediaPipe/pose_X.npy', X)
+np.save('mediaPipe/pose_y.npy', y)
