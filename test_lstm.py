@@ -3,11 +3,11 @@ import mediapipe as mp
 import numpy as np
 from tensorflow.keras.models import load_model
 
-# 1. MediaPipe Pose 모델 준비
+# MediaPipe Pose 모델
 mp_pose = mp.solutions.pose
 pose = mp_pose.Pose(static_image_mode=True)
 
-# 2. 관절 데이터 추출 함수
+# 관절 데이터 추출
 def extract_keypoints_from_image(image_path):
     img = cv2.imread(image_path)
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
