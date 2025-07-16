@@ -8,7 +8,7 @@ mp_drawing = mp.solutions.drawing_utils
 pose = mp_pose.Pose(static_image_mode=True)  # 단일 이미지 분석
 
 # 2. 분석할 이미지 경로 지정
-img_path = 'testData/image7.jpg'  # 실제 파일명으로 변경
+img_path = 'testData/image13.jpg'  # 실제 파일명으로 변경
 
 # 3. 이미지 불러오기
 img = cv2.imread(img_path)
