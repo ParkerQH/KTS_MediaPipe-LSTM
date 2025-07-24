@@ -21,7 +21,7 @@ def extract_keypoints_from_image(image_path):
         return None
 
 # 3. 테스트할 이미지 파일 경로
-img_path = 'testData/image14.jpg'
+img_path = 'testData/image10.jpg'
 img = cv2.imread(img_path)
 if img is None:
     print("이미지를 불러올 수 없습니다. 경로/파일명을 확인하세요.")
@@ -35,7 +35,7 @@ else:
 test_keypoints = extract_keypoints_from_image(img_path)
 
 # 4. 모델 불러오기 및 예측
-model = load_model('lstm_model/best_1500.keras')
+model = load_model('lstm_model/best_3000_50.keras')
 
 if test_keypoints is not None:
     test_input = test_keypoints.reshape(1, 1, 99)
