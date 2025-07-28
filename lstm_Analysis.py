@@ -28,7 +28,7 @@ def lstm_Analysis_per1(image):
     MODEL_PATH = os.path.join(BASE_PATH, "lstm_model")
 
     # LSTM 모델 불러오기 및 예측
-    model = load_model(os.path.join(MODEL_PATH,'best_1500.keras'))
+    model = load_model(os.path.join(MODEL_PATH,'best_3000_50.keras'))
 
     if check_keypoints is not None:
         check_input = check_keypoints.reshape(1, 1, 99)
@@ -38,4 +38,4 @@ def lstm_Analysis_per1(image):
         return pred_label
     else:
         print("관절 데이터 추출 실패(사람이 인식되지 않음)")
-        return 1
+        return None
