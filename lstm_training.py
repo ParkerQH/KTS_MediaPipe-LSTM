@@ -30,7 +30,7 @@ model.summary()
 # 6. 모델 학습
 history = model.fit(
     X_train, y_train,
-    epochs=200,
+    epochs=50,
     batch_size=16,
     validation_data=(X_val, y_val)
 )
@@ -42,3 +42,18 @@ model.save('lstm_model/kickboard_lstm_model.keras')  # 원하는 파일명으로
 loss, acc = model.evaluate(X_val, y_val)
 print(f'검증 정확도: {acc:.4f}')
 
+# ✅ F1-score 및 분류 리포트 추가
+from sklearn.metrics import classification_report, f1_score
+
+# 확률 → 클래스 예측
+y_pred_probs = model.predict(X_val)
+y_pred = np.argmax(y_pred_probs, axis=1)
+y_true = np.argmax(y_val, axis=1)
+
+# F1-score 및 상세 리포트 출력
+report = classification_report(y_true, y_pred, digits=4)
+print("📊 Classification Report:\n", report)
+
+# F1-score만 따로 출력 (weighted 평균 기준)
+f1 = f1_score(y_true, y_pred, average='weighted')
+print(f"F1-score (weighted): {f1:.4f}")
